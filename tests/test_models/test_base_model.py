@@ -6,6 +6,16 @@ from datetime import datetime
 
 
 class TestBaseModel(unittest.TestCase):
+    """Test casess for BaseModel class""""""Test casess for BaseModel class"""
+
+    def setUp(self):
+        """Set up the env before each test case"""
+        self.base_model = BaseModel()
+
+    def tearDown(self):
+        """Clean up the test env after each test case if needed"""
+        pass
+
     def test_init(self):
         """Test initialization of BaseModel instance"""
         b = BaseModel()
