@@ -170,13 +170,6 @@ class HBNBCommand(cmd.Cmd):
                 self.do_count(class_name)
             elif method_name == "destroy":
                 self.do_destroy(class_name + " " + args.strip('"'))
-            elif method_name == "update":
-                if ',' in args:  # Check if it's a standard update
-                    obj_id, attr_name, attr_value = map(
-                                                    str.strip, args.split(','))
-                    self.do_update(class_name, obj_id, attr_name, attr_value)
-                else:
-                    print("** missing arguments **")
             else:
                 self.do_all(class_name)
             return
