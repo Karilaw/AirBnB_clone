@@ -67,7 +67,7 @@ class FileStorage:
                     from models.state import State
                     FileStorage.__objects[key] = State(**value)
                 elif class_name == "City":
-                    from models.state import City
+                    from models.city import City
                     FileStorage.__objects[key] = City(**value)
                 elif class_name == "Amenity":
                     from models.amenity import Amenity
