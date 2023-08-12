@@ -5,7 +5,6 @@ from models.base_model import BaseModel
 from typing import List
 
 
-
 class Place(BaseModel):
     """A class to represent a place."""
     city_id: str = ''
