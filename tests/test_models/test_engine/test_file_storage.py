@@ -19,19 +19,24 @@ class TestFileStorage(unittest.TestCase):
     """Unittests for testing instantiation of the FileStorage class."""
 
     def test_FileStorage_no_args(self):
+        """Test if FileStorage can be instantiated without arguments."""
         self.assertEqual(type(FileStorage()), FileStorage)
 
     def test_FileStorage_with_arg(self):
+        """Test if FileStorage raises TypeError"""
         with self.assertRaises(TypeError):
             FileStorage(None)
 
     def test_FileStorage_file_path_is_private_str(self):
+        """Test if FileStorage is a private string."""
         self.assertEqual(str, type(FileStorage._FileStorage__file_path))
 
     def testFileStorage_objects_is_private_dict(self):
+        """Test if the FileStorage is a private dictionary."""
         self.assertEqual(dict, type(FileStorage._FileStorage__objects))
 
     def test_storage_initializes(self):
+        """Test if models.storage is an instance of FileStorage."""
         self.assertEqual(type(models.storage), FileStorage)
 
 
@@ -40,6 +45,7 @@ class TestFileStorage_methods(unittest.TestCase):
 
     @classmethod
     def setUp(self):
+        """Set up before each test."""
         try:
             os.rename("data.json", "test")
         except IOError:
@@ -47,6 +53,7 @@ class TestFileStorage_methods(unittest.TestCase):
 
     @classmethod
     def tearDown(self):
+        """Tear down after each test."""
         try:
             os.remove("data.json")
         except IOError:
@@ -58,13 +65,16 @@ class TestFileStorage_methods(unittest.TestCase):
         FileStorage._FileStorage__objects = {}
 
     def test_all(self):
+        """Test if the all method returns a dictionary."""
         self.assertEqual(dict, type(models.storage.all()))
 
     def test_all_with_arg(self):
+        """Test if all method raises TypeError when called with an argument."""
         with self.assertRaises(TypeError):
             models.storage.all(None)
 
     def test_new(self):
+        """Test if new method raises TypeError"""
         basemodel = BaseModel()
         user = User()
         state = State()
@@ -95,14 +105,17 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn(review, models.storage.all().values())
 
     def test_new_with_args(self):
+        """Test if new method raises AttributeError when called with None."""
         with self.assertRaises(TypeError):
             models.storage.new(BaseModel(), 1)
 
     def test_new_with_None(self):
+        """Test if the save method correctly saves objects to the file."""
         with self.assertRaises(AttributeError):
             models.storage.new(None)
 
     def test_save(self):
+        """Test if save method raises TypeError"""
         basemodel = BaseModel()
         user = User()
         state = State()
@@ -130,10 +143,12 @@ class TestFileStorage_methods(unittest.TestCase):
             self.assertIn("Review." + review.id, save_text)
 
     def test_save_with_arg(self):
+        """Test with arguments"""
         with self.assertRaises(TypeError):
             models.storage.save(None)
 
     def test_reload(self):
+        """test reload method"""
         basenodel = BaseModel()
         user = User()
         state = State()
@@ -160,6 +175,7 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn("Review." + review.id, objs)
 
     def test_reload_with_arg(self):
+        """test if reload method raises TypeError"""
         with self.assertRaises(TypeError):
             models.storage.reload(None)
 
