@@ -77,6 +77,8 @@ class HBNBCommand(cmd.Cmd):
         key = "{}.{}".format(args[0], args[1])
         if key in all_objs:
             del all_objs[key]
+        else:
+            print("** no instance found **")
 
     def do_all(self, arg):
         """Prints all string representation of
