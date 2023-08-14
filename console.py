@@ -154,7 +154,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, arg):
         """Counts the number of instances of class"""
-        print(f"do_count method called with arg: {arg}")
         class_name = arg
         if class_name in self.classes:
             all_objs = storage.all()
