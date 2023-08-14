@@ -36,6 +36,7 @@ class TestBaseModel(unittest.TestCase):
         old_updated_at = b.updated_at
         b.save()
         self.assertNotEqual(old_updated_at, b.updated_at)
+        storage.save()
 
     def test_to_dict(self):
         """Test to_dict method of BaseModel instance"""
