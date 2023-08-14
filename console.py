@@ -162,7 +162,7 @@ class HBNBCommand(cmd.Cmd):
             for obj in all_objs.values():
                 if isinstance(obj, self.classes[class_name]):
                     count += 1
-            print(f"count: {count}")
+            print(count)
         else:
             print("** class doesn't exist **")
 
