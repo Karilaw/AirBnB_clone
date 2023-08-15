@@ -178,6 +178,8 @@ class HBNBCommand(cmd.Cmd):
                 self.do_count(class_name)
             elif method_name == "destroy":
                 self.do_destroy(class_name + " " + args.strip('"'))
+            elif method_name == "update":
+                self.do_update(class_name + " " + args)
             else:
                 self.do_all(class_name)
             return
