@@ -119,36 +119,28 @@ class HBNBCommand(cmd.Cmd):
         adding or updating attribute (save the change into the
         JSON file)"""
         args = arg.split()
-        if not args:
-            print("** class name missing **")
-            return
-        if len(args) == 1:
-            print("** instance id missing **")
+        if len(args) < 2:
+            print("** class name and id missing **")
             return
         if len(args) == 2:
-            print("** attribute name missing **")
-            return
-        if len(args) == 3:
-            print("** value missing **")
+            print("** dictionary representation missing **")
             return
         try:
-            eval(args[0])
-        except NameError:
-            print("** class doesn't exist **")
+            cls_name, obj_id, dict_str = args[0], args[1], ' '.join(args[2:])
+            dict_repr = eval(dict_str)
+            if not isinstance(dict_repr, dict):
+                raise TypeError
+        except (NameError, TypeError, SyntaxError):
+            print("** invalid dictionary representation **")
             return
         all_objs = storage.all()
-        key = "{}.{}".format(args[0], args[1])
+        key = "{}.{}".format(cls_name, obj_id)
         if key in all_objs:
             obj = all_objs[key]
-            if args[2] not in ['id', 'created_at', 'updated_at']:
-                value = args[3].strip('"')
-                try:
-                    value = eval(value)
-                except NameError:
-                    pass
-                setattr(obj, args[2], value)
-                storage.save()
-
+            for k, v in dict_repr.items():
+                if k not in ['id', 'created_at', 'updated_at']:
+                    setattr(obj, k, v)
+            storage.save()
         else:
             print("** no instance found **")
 
