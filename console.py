@@ -89,7 +89,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Prints all string representation of
-        all instances based or not on the class name"""
+        all instances"""
         if '.' in arg:
             class_name, command = arg.split('.', 1)
             if command == "all()":
