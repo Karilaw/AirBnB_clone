@@ -1,0 +1,82 @@
+/* 8-places.css */
+.places {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.place {
+  width: calc(50% - 40px); /* Adjust as needed to control the spacing */
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #FF5A5F;
+  border-radius: 4px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.price_by_night {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+  min-width: 60px;
+  height: 60px;
+  background-color: #FF5A5F;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 10px 0;
+}
+
+.information div {
+  display: flex;
+  align-items: center;
+}
+
+.max_guest, .number_rooms, .number_bathrooms {
+  width: 100px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.user {
+  font-weight: bold;
+}
+
+.description {
+  margin-top: 10px;
+}
+.places {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.place{
+  width: calc(100% - 40px); 
+  flex-grow: 1; 
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #FF5A5F;
+  border-radius: 4px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+
+
+

@@ -1,0 +1,76 @@
+/* 6-filters.css */
+.filters {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  
+  .filters button {
+    font-size: 18px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .filters button:hover {
+    opacity: 0.9;
+  }
+  
+  .filter-box {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #DDDDDD;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .filter-box:first-child {
+    border-right: none;
+  }
+  
+  .filter-title {
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .filter-subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .popover {
+    display: none;
+    position: absolute;
+    background-color: #FAFAFA;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+  }
+  
+  .popover li {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .filter-box:hover .popover {
+    display: block;
+  }  
